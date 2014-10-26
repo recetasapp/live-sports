@@ -1,0 +1,23 @@
+es:
+  home: "Inicio"
+  sports: "Deportes"
+
+  welcome: "Bienvenido"
+  select_an_option: "Elige una opcion:"
+  sport_list: "Lista de Deportes"
+
+  click_to_see_events: "Haz Clic en un Deporte para ver sus Eventos"
+  events_for: "Eventos de "
+  no_events: "En este momento no hay Eventos de este Deporte"
+
+  click_to_see_outcomes: "Haz Clic en un Evento para ver sus Cuotas"
+  no_outcomes: "En este momento no hay Cuotas para este Evento"
+  outcomes_for: "Cuotas para "
+
+  event: "Evento"
+  meeting: "Competicion"
+  score: "Resultado"
+  status: "Estado"
+
+  outcome: "Resultado"
+  price: "Cuota"

@@ -1,20 +1,19 @@
-<% title "Outcomes for #{@sport[:event][:title]}" %>
+<% title t(:outcomes_for) + @sport[:event][:title] %>
 
-<%= link_to "Home", root_path, id: "nav_home" %> ->
-<%= link_to "Sports", sports_path, id: "nav_sports" %> ->
+<%= link_to t(:home), root_path, id: "nav_home" %> ->
+<%= link_to t(:sports), sports_path, id: "nav_sports" %> ->
 <%= link_to @sport[:title], sport_path(@sport[:id]), id: "nav_sport" %> ->
 <%= link_to @sport[:event][:title], sport_event_path(@sport[:id],@sport[:event][:id]), id: "nav_event" %>
 
 <h1 class="page-header"><%= yield :title %></h1>
 
 <% if @sport[:event][:outcomes].empty? %>
-  <h4>This Event has no Outcomes at this moment</h4>
-  <%= link_to "Go to List of Sports", sports_path, id: "show_sport_list", class: "btn btn-default" %>
+  <h4><%= t(:no_outcomes) %></h4>
 <% else %>
   <table id="outcomes_list" class="table table-condensed table-striped">
     <tr>
-      <th>Outcome</th>
-      <th>Price</th>
+      <th><%= t(:outcome) %></th>
+      <th><%= t(:price) %></th>
     </tr>
     <% @sport[:event][:outcomes].each do |outcome| %>
       <tr id="outcome_id_<%= outcome[:id] %>">
@@ -24,4 +23,5 @@
     <% end %>
   </table>
 <% end %>
-<%= link_to "Go to Events for #{@sport[:title]}", sport_path(@sport[:id]), id: "show_#{@sport[:title]}_events", class: "btn btn-default" %><br>
+<%= link_to t(:events_for) + @sport[:title], sport_path(@sport[:id]), id: "show_#{@sport[:title]}_events", class: "btn btn-default" %>
+<%= link_to t(:sport_list), sports_path, id: "show_sport_list", class: "btn btn-default" %>

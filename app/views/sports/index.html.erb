@@ -1,11 +1,11 @@
-<% title "List of Sports" %>
+<% title t(:sport_list) %>
 
-<%= link_to "Home", root_path, id: "nav_home" %> ->
-<%= link_to "Sports", sports_path, id: "nav_sports" %>
+<%= link_to t(:home), root_path, id: "nav_home" %> ->
+<%= link_to t(:sports), sports_path, id: "nav_sports" %>
 
 <h1 class="page-header"><%= yield :title %></h1>
 
-<h4>Click a Sport to see its Events</h4>
+<h4><%= t(:click_to_see_events) %></h4>
 <table id="sports_list" class="table table-condensed table-striped">
   <% @sports.each do |sport| %>
     <tr id="sport_id_<%= sport[:id] %>">

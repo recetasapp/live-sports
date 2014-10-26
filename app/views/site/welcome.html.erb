@@ -1,12 +1,12 @@
-<% title "Welcome" %>
+<% title t(:welcome) %>
 
-<%= link_to "Home", root_path, id: "nav_home" %>
+<%= link_to t(:home), root_path, id: "nav_home" %>
 
 <h1 class="page-header"><%= yield :title %></h1>
 
-<h4>Select an option:</h4>
+<h4><%= t(:select_an_option) %></h4>
 
-<%= link_to "List of Sports", sports_path, id: "show_sport_list", class: "btn btn-default" %>
+<%= link_to t(:sport_list), sports_path, id: "show_sport_list", class: "btn btn-default" %>
 
 
 
