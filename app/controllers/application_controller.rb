@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from NetworkException, with: :not_found
+  rescue_from NotFoundException, with: :not_found
 
   protected
   def not_found(exception)
