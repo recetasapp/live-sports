@@ -49,4 +49,12 @@ class Live
     sport
   end
 
+  def sport_event(sport_id,id)
+    sport = self.sport sport_id
+    sport[:event] = sport[:events].select {|event| event[:id] == id.to_i}.first
+    raise NotFoundException.new if sport[:event].nil?
+    sport[:event][:outcomes] = [] if sport[:event][:outcomes].nil?
+    sport
+  end
+
 end
