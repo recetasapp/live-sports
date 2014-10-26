@@ -5,6 +5,7 @@ class SportsController < ApplicationController
   end
 
   def show
+    @sport = Live.instance.sport params[:id]
   end
 
 end

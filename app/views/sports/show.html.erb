@@ -1,0 +1,30 @@
+<% title "Events for #{@sport[:title]}" %>
+
+<%= link_to "Home", root_path, id: "nav_home" %> ->
+<%= link_to "Sports", sports_path, id: "nav_sports" %> ->
+<%= link_to @sport[:title], sport_path(@sport[:id]), id: "nav_sport" %>
+
+<h1 class="page-header"><%= yield :title %></h1>
+
+<% if @sport[:events].empty? %>
+  <h4>This Sport has no Events at this moment</h4>
+  <%= link_to "Go to List of Sports", sports_path, id: "show_sport_list", class: "btn btn-default" %>
+<% else %>
+  <h4>Click a Event to see its Outcomes</h4>
+  <table id="events_list" class="table table-condensed table-striped">
+    <tr>
+      <th>Event</th>
+      <th>Competition</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+    <% @sport[:events].each do |event| %>
+      <tr id="event_id_<%= event[:id] %>">
+        <td><%= link_to event[:title], sport_event_path(@sport[:id], event[:id]), id: "show_event_id_#{event[:id]}" %></td>
+        <td><%= event[:meeting] %></td>
+        <td><%= event[:score] %></td>
+        <td><%= event[:status] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
