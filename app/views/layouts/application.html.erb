@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Betvictor</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Sports Live - <%= yield :title %></title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
 
-</body>
+    <!-- NAVBAR -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+	<div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+	  <%= link_to(root_path, class: "navbar-brand") do %>
+	    <span>SPORTS LIVE</span>
+	  <% end %>
+	</div>
+	<div class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav"></ul>
+          <ul class="nav navbar-nav navbar-right"></ul>
+	</div>
+      </div>
+    </div>
+
+    <!-- BODY PAGE -->
+    <div class="container">
+
+      <% if flash.alert.present? %>
+        <div class="alert alert-danger">
+          <%= flash.alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+
+  </body>
 </html>
