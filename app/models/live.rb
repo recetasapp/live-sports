@@ -44,6 +44,7 @@ class Live
   def sport(id)
     data = self.data
     sport = data[:sports].select {|sport| sport[:id] == id.to_i}.first
+    raise NotFoundException.new if sport.nil?
     sport[:events] = sport[:events].sort_by {|event| event[:pos]}
     sport
   end
