@@ -5,7 +5,7 @@ describe "fetch! method" do
 
   it "should return false if an exception was raised while getting the data from the API" do
     # stub HTTParty.get method
-    expect(HTTParty).to receive(:get).and_throw Exception
+    expect(HTTParty).to receive(:get).with(Live::API_URL).and_throw Exception
 
     expect(Live.instance.fetch!).to be false
   end
@@ -16,7 +16,7 @@ describe "fetch! method" do
     expect(response).to receive(:ok?).and_return false
 
     # stub HTTParty.get method
-    expect(HTTParty).to receive(:get).and_return response
+    expect(HTTParty).to receive(:get).with(Live::API_URL).and_return response
 
     expect(Live.instance.fetch!).to eq false
   end
@@ -28,7 +28,7 @@ describe "fetch! method" do
     expect(response).to receive(:body).and_return DATA.to_json
 
     # stub HTTParty.get method
-    expect(HTTParty).to receive(:get).and_return response
+    expect(HTTParty).to receive(:get).with(Live::API_URL).and_return response
 
     data = Live.instance.fetch!
     expect(data).to be_a Hash
