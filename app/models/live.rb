@@ -41,4 +41,11 @@ class Live
     data[:sports].sort_by {|sport| sport[:pos]}
   end
 
+  def sport(id)
+    data = self.data
+    sport = data[:sports].select {|sport| sport[:id] == id.to_i}.first
+    sport[:events] = sport[:events].sort_by {|event| event[:pos]}
+    sport
+  end
+
 end
