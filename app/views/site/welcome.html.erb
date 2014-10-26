@@ -1,0 +1,13 @@
+<% title "Welcome" %>
+
+<%= link_to "Home", root_path, id: "nav_home" %>
+
+<h1 class="page-header"><%= yield :title %></h1>
+
+<h4>Select an option:</h4>
+
+<%= link_to "List of Sports", sports_path, id: "show_sport_list", class: "btn btn-default" %>
+
+
+
+
