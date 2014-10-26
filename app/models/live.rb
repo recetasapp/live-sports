@@ -22,7 +22,7 @@ class Live
         response = HTTParty.get API_URL
         return false unless response.ok?
         JSON.parse response.body, symbolize_names: true
-      rescue
+      rescue Exception
         return false
       end 
     end
