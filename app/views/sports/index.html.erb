@@ -1,0 +1,15 @@
+<% title "List of Sports" %>
+
+<%= link_to "Home", root_path, id: "nav_home" %> ->
+<%= link_to "Sports", sports_path, id: "nav_sports" %>
+
+<h1 class="page-header"><%= yield :title %></h1>
+
+<h4>Click a Sport to see its Events</h4>
+<table id="sports_list" class="table table-condensed table-striped">
+  <% @sports.each do |sport| %>
+    <tr id="sport_id_<%= sport[:id] %>">
+      <td><%= link_to sport[:title], sport_path(sport[:id]), id: "show_sport_id_#{sport[:id]}" %></td>
+    </tr>
+  <% end %>
+</table>
