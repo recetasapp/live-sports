@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def not_found(exception)
-    redirect_to root_path, alert: exception.cause
+    redirect_to root_path, alert: t(exception.cause)
   end
 
   def set_locale

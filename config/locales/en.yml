@@ -22,3 +22,5 @@ en:
   outcome: "Outcome"
   price: "Price"
 
+  network_exception_message: "Could not retreive data from network! Try again later."
+  not_found_exception_message: "Could not found the requested data. Maybe the market is no longer available. Try with a different one."

@@ -21,3 +21,6 @@ es:
 
   outcome: "Resultado"
   price: "Cuota"
+
+  network_exception_message: "No fue posible obtener datos de la red! Por favor, intentalo mas tarde."
+  not_found_exception_message: "No se encontraron los datos solicitados. Posiblemente el mercado ya no se encuentre disponible. Pruebe con otro diferente."

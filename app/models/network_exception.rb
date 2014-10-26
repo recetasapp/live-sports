@@ -1,7 +1,7 @@
 class NetworkException < Exception
   
   def initialize
-    @cause = "Could not retreive data from network! Try again later."
+    @cause = :network_exception_message
   end
 
   def cause

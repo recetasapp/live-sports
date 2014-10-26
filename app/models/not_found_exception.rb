@@ -1,7 +1,7 @@
 class NotFoundException < Exception
   
   def initialize
-    @cause = "Could not found the requested data. Maybe the market is no longer available. Try with a different one."
+    @cause = :not_found_exception_message
   end
 
   def cause
