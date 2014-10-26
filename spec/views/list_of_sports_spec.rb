@@ -7,7 +7,7 @@ describe "Sport index" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).and_return false
 
-    visit sports_path
+    visit sports_path :en
     expect(page).to have_content "Could not retreive data from network! Try again later."
   end
 
@@ -16,16 +16,16 @@ describe "Sport index" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).and_return DATA
 
-    visit sports_path
+    visit sports_path :en
 
     within "tr#sport_id_1" do
-      expect(page).to have_link "Football", href: sport_path(1)
+      expect(page).to have_link "Football", href: sport_path(:en, 1)
     end
     within "tr#sport_id_2" do
-      expect(page).to have_link "Horse Racing", href: sport_path(2)
+      expect(page).to have_link "Horse Racing", href: sport_path(:en, 2)
     end
     within "tr#sport_id_3" do
-      expect(page).to have_link "Tennis", href: sport_path(3)
+      expect(page).to have_link "Tennis", href: sport_path(:en, 3)
     end
   end
 

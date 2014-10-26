@@ -10,7 +10,7 @@ describe "Event view" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).and_return false
 
-    visit sport_event_path sport_id, event_id
+    visit sport_event_path :en, sport_id, event_id
     expect(page).to have_content "Could not retreive data from network! Try again later."
   end
 
@@ -22,7 +22,7 @@ describe "Event view" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).and_return DATA
 
-    visit sport_event_path not_existing_sport_id, event_id
+    visit sport_event_path :en, not_existing_sport_id, event_id
     expect(page).to have_content "Could not found the requested data. Maybe the market is no longer available. Try with a different one."
   end
 
@@ -34,7 +34,7 @@ describe "Event view" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).and_return DATA
 
-    visit sport_event_path sport_id, not_existing_event_id
+    visit sport_event_path :en, sport_id, not_existing_event_id
     expect(page).to have_content "Could not found the requested data. Maybe the market is no longer available. Try with a different one."
   end
 
@@ -46,7 +46,7 @@ describe "Event view" do
     # stub Live.fetch! method
     expect(Live.instance).to receive(:fetch!).exactly(3).times.and_return DATA
 
-    visit root_path
+    visit root_path :en
     click_link "List of Sports"
     click_link "Horse Racing"
     click_link "RAFAL (Spain) 12:00"
